@@ -17,22 +17,22 @@ int main(int argc, char *argv[])
   for (int i = 0; i < numPoints+1; ++i)
   {
     x = double(i)/double(numPoints);
-    t = 0.3;
+    t = 0.001;
     y = sin(PI*x) * exp(-alpha*t*t);
     points0.append(QPointF(x,y));
     t = 0.5;
     y = sin(PI*x) * exp(-alpha*t*t);
     points1.append(QPointF(x,y));
-    t = 0.9;
+    t = 5.;
     y = sin(PI*x) * exp(-alpha*t*t);
     points2.append(QPointF(x,y));
   }
   //
   Plotter plotter;
   plotter.setWindowTitle(QObject::tr("BHYWI-08-02-E: Function Plotter"));
-  plotter.setCurveData(0, points0);
+  plotter.setCurveData(2, points0);
   plotter.setCurveData(1, points1);
-  plotter.setCurveData(2, points2);
+  plotter.setCurveData(0, points2);
   PlotSettings settings;
   settings.minX = 0.0;
   settings.maxX = 1.0;
