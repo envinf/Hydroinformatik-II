@@ -1,5 +1,5 @@
 import math
-import matplotlib.pylab as plt
+#import matplotlib.pylab as plt
 PI = 3.14159265358979323846
 numPoints = 100
 alpha = 1.0
