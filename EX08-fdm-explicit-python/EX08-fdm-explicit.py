@@ -5,12 +5,12 @@ import matplotlib.pylab as plt
 ##physical parameter
 alpha = 1.0
 ##numerical parameters (discretization)
-nx = 10
+nx = 100
 x = np.zeros(nx+1)
 dx = 1./nx
 t = [0.01]
-nt = 10 #wieviele Zeitschritte bis zum stationären Zustand
-dt = 0.5 * dx*dx / alpha
+nt = 200 #wieviele Zeitschritte bis zum stationären Zustand
+dt = 0.51 * dx*dx / alpha
 Ne = alpha * dt / (dx*dx)
 ##field function
 u = np.zeros(nx+1)
@@ -23,7 +23,7 @@ for i in range(nx+1):
 	uo[i] = 0
 #boundary conditions
 u_bc_l = 1.
-u_bc_r = 1.
+u_bc_r = -1.
 u[0] = uo[0] = u_bc_l
 u[nx] = uo[nx] = u_bc_r
 #initial state
@@ -34,7 +34,8 @@ plt.plot(x,u,color='blue')
 for n in range(1,nt):
 	for i in range(1,nx):
 		u[i] = uo[i] + Ne *(uo[i-1] - 2*uo[i] + uo[i+1])
-	plt.plot(x,u,color='blue')
+	if(n % 10 == 0): 
+	    plt.plot(x,u,color='blue')
 	for i in range(1,nx):
 		uo[i] = u[i]
 #plots

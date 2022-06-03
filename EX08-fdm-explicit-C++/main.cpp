@@ -9,12 +9,12 @@ int main(int argc, char *argv[])
   //1.1 Diskretisierung
   double dt,dx;
   int nj = 101;
-  int nt = 5000;
+  int nt = 1000;
   vector<double> u_new, u_old;
   u_new.resize(nj);
   u_old.resize(nj);  
   double Ne;
-  double x,y,alpha=1.,t=0.01;
+  double x,y,alpha=1.,t=1;
   std::ofstream out_file;
   out_file.open("out.csv");
   //2-Anfangsbedingungen
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
   }
   //3-Randbedingungen
   double u_bc_l = 3.;
-  double u_bc_r = 3.;
+  double u_bc_r = -3.;
   u_new[0] = u_old[0] = u_bc_l;
   u_new[nj-1] = u_old[nj-1] = u_bc_r;
   //4-Diskretisierung
