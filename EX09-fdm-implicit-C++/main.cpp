@@ -1,12 +1,13 @@
 #include <vector>
 //#include <cmath>
 #include <fstream>
+#include <iostream>
 using namespace std;
 //
 extern void Gauss(double *matrix, double *vecb, double *vecx, int g);
 void AssembleEquationSystem();
 //
-int nj = 101;
+int nj = 1001;
 int n=nj;
 double* matrix;
 double* vecb;
@@ -43,17 +44,18 @@ int main(int argc, char *argv[])
     u_old[ix] = 0.;
   }
   //3-Randbedingungen
-  double u_bc_l = 3.;
-  double u_bc_r = -1.;
+  double u_bc_l = 5.;
+  double u_bc_r = -2.;
   u_new[0] = u_old[0] = u_bc_l;
   u_new[nj-1] = u_old[nj-1] = u_bc_r;
   //4-Diskretisierung
   //dt = 1.;
-  dx = 1./(nj-1);
+  dx = 1./(nj-1); //?
   //5-Formel
   //dt = 100. * dx*dx / alpha; // Zeitschrittsteuerung
-  dt = 0.001;
+  dt = 0.01;
   Ne = alpha * dt / (dx*dx);  
+  cout << "Ne: " << Ne << endl;
   //------------------------------------------------------
   //6-Berechnung
   int i,j;
