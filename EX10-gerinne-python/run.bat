@@ -1,5 +1,5 @@
 echo Compilation
-g++ main.cpp
+g++ main-newton.cpp
 echo Execution
 a.exe
 echo Ploting

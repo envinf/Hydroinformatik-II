@@ -57,7 +57,7 @@ double RUN_NewtonStep()
     for(int i=0;i<n;i++)
       bottom_elevation[i] = 0.04 - i*0.004;
 	// Parameter (konstant)
-	double discharge = 0.05; // Volumenfließrate [m3/s]
+	double discharge = 0.07; // Volumenfließrate [m3/s]
     double gravity = 9.81; // [m/s2]
     double friction_law_exponent = 0.5; // Chezy, Manning-Strickler [-]
     double error_tolerance = 1e-3; // [m]
